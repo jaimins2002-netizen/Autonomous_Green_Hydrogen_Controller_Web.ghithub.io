@@ -110,3 +110,34 @@ footer { border-top:1px solid var(--line); padding:24px 0 36px; color:var(--mute
 .report-actions button{font:inherit;cursor:pointer;border:0}
 #milestone2-report-frame:fullscreen{width:100vw;height:100vh;border-radius:0;background:#fff}
 @media (max-width:560px){.report-actions{justify-content:flex-start;width:100%}}
+
+/* Milestone 3 SCADA monitor */
+.scada-shell{background:#102a35;border-radius:22px;padding:28px;color:#eef8f6;box-shadow:0 18px 40px rgba(16,42,53,.18)}
+.scada-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
+.scada-heading h2{margin:7px 0 8px;color:#fff}
+.scada-heading p{margin:0;color:#b9d1d0;max-width:690px}
+.scada-status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.scada-status-card{padding:18px;border:1px solid rgba(185,225,218,.16);border-radius:14px;background:rgba(4,20,28,.34)}
+.scada-label{display:block;color:#9cc5c0;font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;font-weight:800}
+.scada-status-card strong{display:block;margin:8px 0 4px;color:#fff;font-size:1.15rem;letter-spacing:.04em}
+.scada-status-card small{color:#a5c4c2;font-size:.78rem}
+.scada-online{display:flex!important;align-items:center;gap:9px}
+.scada-online i{display:inline-block;width:10px;height:10px;border-radius:50%;background:#78e7a4;box-shadow:0 0 0 5px rgba(120,231,164,.12);animation:scada-pulse 2s infinite}
+.scada-safe{color:#8de3ac!important}
+.scada-warning{color:#f4d27d!important}
+.scada-alert{color:#ff9d9d!important}
+@keyframes scada-pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.scada-log-panel{margin-top:16px;border:1px solid rgba(185,225,218,.16);border-radius:14px;background:rgba(4,20,28,.34);overflow:hidden}
+.scada-log-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 18px 12px}
+.scada-log-heading h3{margin:5px 0 0;color:#fff}
+.scada-log-list{list-style:none;margin:0;padding:0 18px 12px;max-height:260px;overflow:auto}
+.scada-log{display:grid;grid-template-columns:76px 54px 1fr;gap:10px;align-items:baseline;padding:10px 0;border-top:1px solid rgba(185,225,218,.1);font-size:.82rem}
+.scada-log time{color:#84aaa8;font-variant-numeric:tabular-nums}
+.scada-log b{font-size:.67rem;letter-spacing:.08em}
+.scada-log.info b{color:#8de3ac}.scada-log.warn b{color:#f4d27d}.scada-log.alert b{color:#ff9d9d}
+.scada-log span{color:#d8ebe8}
+.scada-log.empty{display:block;color:#84aaa8;font-style:italic}
+.scada-links{display:flex;flex-wrap:wrap;gap:18px;margin-top:18px}
+.scada-links a{color:#a8e5d6;font-weight:750}
+@media (max-width:820px){.scada-heading{align-items:flex-start;flex-direction:column}.scada-status-grid{grid-template-columns:1fr}}
+@media (max-width:560px){.scada-shell{padding:20px}.scada-log{grid-template-columns:62px 48px 1fr;font-size:.75rem}.scada-links{display:grid;gap:10px}}

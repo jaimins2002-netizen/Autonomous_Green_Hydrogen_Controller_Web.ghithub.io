@@ -73,7 +73,21 @@
     status.textContent = statusText;
     status.className = `telemetry-status ${statusClass}`;
     rules.textContent = pressure >= 80 ? 'High-pressure protection reduces the production command.' : temp >= 70 ? 'High-temperature derating rule is influencing the command.' : 'Renewable power, water flow, pressure, and temperature are combined by the fuzzy-style simulation.';
-    timestamp.textContent = `Last reading: ${new Date().toLocaleTimeString()}`;
+    const readingTime = new Date();
+    timestamp.textContent = `Last reading: ${readingTime.toLocaleTimeString()}`;
+    window.dispatchEvent(new CustomEvent('telemetry:update', {
+      detail: {
+        power,
+        flow,
+        temp,
+        pressure,
+        production,
+        statusText,
+        statusClass,
+        safety: pressure >= 80 ? 'Protection active' : 'Interlocks nominal',
+        time: readingTime
+      }
+    }));
   }
 
   function drift() {
