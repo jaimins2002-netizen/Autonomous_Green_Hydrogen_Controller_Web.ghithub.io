@@ -111,6 +111,31 @@ footer { border-top:1px solid var(--line); padding:24px 0 36px; color:var(--mute
 #milestone2-report-frame:fullscreen{width:100vw;height:100vh;border-radius:0;background:#fff}
 @media (max-width:560px){.report-actions{justify-content:flex-start;width:100%}}
 
+/* Milestone 3 phase-wise notebook dashboard */
+.phase-dashboard{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 10px 32px rgba(16,42,46,.07)}
+.phase-dashboard-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px}
+.phase-dashboard-intro h2{margin:7px 0 8px}
+.phase-dashboard-intro p{margin:0;max-width:720px;color:var(--muted)}
+.phase-nav{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px}
+.phase-nav a{padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-size:.86rem;font-weight:800;text-decoration:none}
+.phase-nav a:hover{border-color:var(--accent);background:var(--mint)}
+.phase-stack{display:grid;gap:18px}
+.phase-panel{border:1px solid var(--line);border-radius:18px;background:var(--paper);overflow:hidden}
+.phase-panel-header{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:24px 24px 8px}
+.phase-panel-header h3{margin:7px 0 8px;font-size:1.45rem}
+.phase-panel-header p{margin:0;color:var(--muted);max-width:710px}
+.phase-badge{color:var(--accent);font-size:.76rem;font-weight:850;letter-spacing:.12em}
+.phase-status{padding:6px 10px;border-radius:999px;background:var(--mint);color:var(--accent-dark);font-size:.75rem;font-weight:800;white-space:nowrap}
+.phase-meta{display:flex;flex-wrap:wrap;gap:6px;padding:0 24px 12px}
+.phase-links{display:flex;flex-wrap:wrap;gap:10px;padding:0 24px 20px}
+.phase-links .button{font-size:.88rem;padding:9px 13px}
+.phase-report{border-top:1px solid var(--line);background:#102a35}
+.phase-report summary{cursor:pointer;padding:14px 24px;color:#b9d1d0;font-weight:800;list-style-position:inside}
+.phase-report summary:hover{color:#fff}
+.phase-report-frame{display:block;width:calc(100% - 32px);height:700px;margin:0 16px 16px;border:0;border-radius:12px;background:#fff}
+@media(max-width:820px){.phase-dashboard-intro,.phase-panel-header{align-items:flex-start;flex-direction:column}.phase-report-frame{height:600px}}
+@media(max-width:560px){.phase-dashboard{padding:16px}.phase-panel-header{padding:20px 18px 8px}.phase-meta,.phase-links{padding-left:18px;padding-right:18px}.phase-report-frame{width:calc(100% - 20px);height:520px;margin-left:10px;margin-right:10px}.phase-report summary{padding-left:18px;padding-right:18px}}
+
 /* Milestone 3 SCADA monitor */
 .scada-shell{background:#102a35;border-radius:22px;padding:28px;color:#eef8f6;box-shadow:0 18px 40px rgba(16,42,53,.18)}
 .scada-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
