@@ -136,6 +136,28 @@ footer { border-top:1px solid var(--line); padding:24px 0 36px; color:var(--mute
 @media(max-width:820px){.phase-dashboard-intro,.phase-panel-header{align-items:flex-start;flex-direction:column}.phase-report-frame{height:600px}}
 @media(max-width:560px){.phase-dashboard{padding:16px}.phase-panel-header{padding:20px 18px 8px}.phase-meta,.phase-links{padding-left:18px;padding-right:18px}.phase-report-frame{width:calc(100% - 20px);height:520px;margin-left:10px;margin-right:10px}.phase-report summary{padding-left:18px;padding-right:18px}}
 
+/* Phase 6 live browser controller */
+.live-controller{margin-top:18px;border:1px solid rgba(185,225,218,.16);border-radius:16px;background:#102a35;color:#eef8f6;padding:22px}
+.live-controller-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:18px}
+.live-controller-heading h4{margin:5px 0 7px;color:#fff;font-size:1.2rem}
+.live-controller-heading p{margin:0;color:#b9d1d0;max-width:650px;font-size:.9rem}
+.live-controller-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.live-controller-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.live-control{padding:13px;border:1px solid rgba(185,225,218,.16);border-radius:12px;background:rgba(4,20,28,.34)}
+.live-control label{display:flex;justify-content:space-between;gap:8px;color:#d8ebe8;font-size:.82rem;font-weight:750}
+.live-control output{color:#a8e5d6;font-variant-numeric:tabular-nums;white-space:nowrap}
+.live-control input{display:block;width:100%;margin-top:13px;accent-color:#78e7a4}
+.live-run{margin-top:12px;border:0;cursor:pointer;font:inherit}
+.live-controller-result{padding:18px;border-radius:13px;background:linear-gradient(145deg,#123d3b,#0f5c55)}
+.live-result-label{display:block;color:#a7d6cd;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+.live-controller-result strong{display:block;margin:8px 0 11px;color:#fff;font-size:2.65rem;letter-spacing:-.05em;line-height:1}
+.live-controller-result strong small{font-size:.9rem;color:#b8e2da;letter-spacing:0}
+.live-run-state{display:block;color:#d8ebe8;font-size:.86rem;font-weight:800}
+.live-run-meta{display:block;margin-top:12px;color:#b8e2da;font-size:.76rem}
+.live-code-log{margin-top:12px;padding:11px 13px;border-radius:10px;background:rgba(4,20,28,.34);color:#b8e2da;font: .76rem/1.5 "SFMono-Regular",Consolas,monospace;min-height:42px}
+@media(max-width:820px){.live-controller-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.live-controller{padding:16px}.live-controller-controls{grid-template-columns:1fr}.live-controller-result strong{font-size:2.3rem}}
+
 /* Milestone 3 SCADA monitor */
 .scada-shell{background:#102a35;border-radius:22px;padding:28px;color:#eef8f6;box-shadow:0 18px 40px rgba(16,42,53,.18)}
 .scada-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:24px}
