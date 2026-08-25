@@ -141,3 +141,26 @@ footer { border-top:1px solid var(--line); padding:24px 0 36px; color:var(--mute
 .scada-links a{color:#a8e5d6;font-weight:750}
 @media (max-width:820px){.scada-heading{align-items:flex-start;flex-direction:column}.scada-status-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.scada-shell{padding:20px}.scada-log{grid-template-columns:62px 48px 1fr;font-size:.75rem}.scada-links{display:grid;gap:10px}}
+
+/* Milestone-wise system guide */
+.guide-overview p{max-width:820px;color:var(--muted)}
+.flow-table{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:26px}
+.flow-table>div{padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.flow-table span,.guide-index{color:var(--accent);font-weight:850;letter-spacing:.08em}
+.flow-table strong{display:block;margin:4px 0 7px;font-size:1.1rem}
+.flow-table small{display:block;color:var(--muted);line-height:1.45}
+.guide-step{display:grid;grid-template-columns:70px 1fr;gap:24px;align-items:start}
+.guide-index{font-size:2.3rem;line-height:1;padding-top:3px}
+.guide-step h2{margin:8px 0 12px}
+.guide-step p,.guide-step li{color:var(--muted)}
+.guide-step ol{padding-left:22px}
+.guide-step li{padding:4px 0}
+pre{overflow:auto;padding:18px 20px;border-radius:12px;background:#102a35;color:#d9f1eb;line-height:1.55;font-size:.88rem}
+code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace}
+.phase-list{display:grid;gap:10px;margin:20px 0}
+.phase-list a{display:block;padding:16px 18px;border:1px solid var(--line);border-radius:12px;background:var(--paper);text-decoration:none}
+.phase-list strong,.phase-list span{display:block}
+.phase-list span{margin-top:3px;color:var(--muted);font-size:.92rem}
+.guide-links{display:flex;flex-wrap:wrap;gap:10px}
+@media(max-width:820px){.flow-table{grid-template-columns:1fr 1fr}.guide-step{grid-template-columns:48px 1fr;gap:16px}}
+@media(max-width:540px){.flow-table{grid-template-columns:1fr}.guide-step{grid-template-columns:1fr}.guide-index{font-size:1.8rem}}
