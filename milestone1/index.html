@@ -1,10 +1,225 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Milestone 1 · Specification</title><link rel="stylesheet" href="../styles.css"></head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Milestone 1 · Specification</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
 <body>
-  <nav class="site-nav"><div class="wrap nav-inner"><a class="brand" href="../">Green Hydrogen Controller</a><div class="nav-links"><a href="../milestone1/">Milestone 1</a><a href="../milestone2/">Milestone 2</a><a href="../milestone3/">Milestone 3</a><a href="https://github.com/jaimins2002-netizen/autonomous-green-hydrogen-power-plant-controller-milestone-1">Repository</a></div></div></nav>
-  <header class="wrap detail-hero"><a class="back" href="../">← Back to project overview</a><div class="eyebrow" style="margin-top:24px">Phase 2 · System design</div><h1>Milestone 1<br>Source specification</h1><p class="lead">The formal contract for the controller: four plant measurements enter the system, and one fuzzy production command comes out.</p><div class="actions"><a class="button" href="https://github.com/jaimins2002-netizen/autonomous-green-hydrogen-power-plant-controller-milestone-1">Open GitHub repository</a><a class="button secondary" href="../milestone2/">Next: Milestone 2 →</a></div></header>
-  <main class="wrap"><section class="section"><div class="detail-grid"><div class="panel"><h2>Input–output contract</h2><div class="table-wrap"><table><thead><tr><th>Signal</th><th>Role</th><th>Range</th><th>Linguistic terms</th></tr></thead><tbody><tr><td>Renewable power</td><td>Input</td><td>0–100 kW</td><td>Low, Medium, High</td></tr><tr><td>Water flow rate</td><td>Input</td><td>0–20 L/min</td><td>Low, Medium, High</td></tr><tr><td>Stack temperature</td><td>Input</td><td>20–80 °C</td><td>Low, Normal, High</td></tr><tr><td>Hydrogen-tank pressure</td><td>Input</td><td>0–100 bar</td><td>Low, Medium, High</td></tr><tr><td>Hydrogen production rate</td><td>Output</td><td>0–10 kg/h</td><td>Off, Low, Medium, High</td></tr></tbody></table></div></div><div class="panel"><h2>What this milestone establishes</h2><p>The supplied source specification defines the triangular membership points and the 11 expert rules used by later implementation and validation phases.</p><p>It also establishes the safety direction: production should be reduced as hydrogen-tank pressure approaches the high-pressure region.</p><span class="pill">11 expert rules</span><span class="pill">4 inputs</span><span class="pill">1 output</span></div></div></section><section class="section"><div class="panel document-panel"><div class="document-heading"><div><div class="eyebrow">Primary source document</div><h2>View the full Milestone 1 PDF</h2><p>The source specification is embedded below for direct browser viewing. Use the download button if your browser does not display PDFs inline.</p></div><div class="document-actions"><a class="button" href="assets/Milestone_1_Source_Specification.pdf" download>Download PDF</a><button class="button secondary" id="pdf-fullscreen" type="button">Full-screen PDF</button></div></div><div class="pdf-frame" id="pdf-viewer"><iframe id="pdf-embed" allowfullscreen src="assets/Milestone_1_Source_Specification.pdf#view=FitH" title="Milestone 1 Source Specification PDF"></iframe></div><p class="document-caption"><a href="assets/Milestone_1_Source_Specification.pdf" target="_blank" rel="noopener">Open the PDF in a new tab →</a></p></div></section><section class="section"><div class="panel"><div class="eyebrow">Readable companion document</div><h2>Milestone 1 I/O specification</h2><p>The companion specification summarizes the signals and requirements used by the implementation and validation milestones.</p><div class="table-wrap"><table><thead><tr><th>Signal</th><th>Type</th><th>Range</th><th>Linguistic terms</th></tr></thead><tbody><tr><td>Renewable power</td><td>Input</td><td>0–100 kW</td><td>Low, Medium, High</td></tr><tr><td>Water flow rate</td><td>Input</td><td>0–20 L/min</td><td>Low, Medium, High</td></tr><tr><td>Stack temperature</td><td>Input</td><td>20–80 °C</td><td>Low, Normal, High</td></tr><tr><td>Hydrogen-tank pressure</td><td>Input</td><td>0–100 bar</td><td>Low, Medium, High</td></tr><tr><td>Hydrogen production rate</td><td>Output</td><td>0–10 kg/h</td><td>Off, Low, Medium, High</td></tr></tbody></table></div><p>The core notebook uses the triangular membership points and 11 expert rules from the source specification. Later phases test at least 10 input combinations, analyze parameter effects, and expose the same parameters as live controls.</p><p><a href="assets/Milestone_1_IO_Specification.md" target="_blank" rel="noopener">Open the original Markdown specification →</a></p></div></section><section class="section"><div class="panel"><div class="eyebrow">Created by</div><h2>Jaimin Sanghani</h2><p>Created by Jaimin Sanghani with Krupa Ashishkumar Rajput, Harsh Shingala, and Makwana Shlock.</p></div></section><section class="section"><div class="note"><strong>Educational scope.</strong> The specification is a simulation foundation. It is not a certified process-safety system and must not be connected to real hydrogen-production equipment without qualified engineering review and independent safeguards.</div></section></main>
-  <footer><div class="wrap">Created by Jaimin Sanghani · <a href="../milestone2/">Continue to Milestone 2 →</a></div></footer>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="../">Green Hydrogen Controller</a>
+      <div class="nav-links">
+        <a href="../milestone1/">Milestone 1</a>
+        <a href="../milestone2/">Milestone 2</a>
+        <a href="../milestone3/">Milestone 3</a>
+        <a href="https://github.com/jaimins2002-netizen/autonomous-green-hydrogen-power-plant-controller-milestone-1">Repository</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header / Hero Section -->
+  <header class="wrap detail-hero">
+    <a class="back" href="../">← Back to project overview</a>
+    <div class="eyebrow" style="margin-top:24px">Phase 2 · System design</div>
+    <h1>Milestone 1<br>Source specification</h1>
+    <p class="lead">
+      The formal contract for the controller: four plant measurements enter the system, and one fuzzy production command comes out.
+    </p>
+    <div class="actions">
+      <a class="button" href="https://github.com/jaimins2002-netizen/autonomous-green-hydrogen-power-plant-controller-milestone-1">Open GitHub repository</a>
+      <a class="button secondary" href="../milestone2/">Next: Milestone 2 →</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="wrap">
+
+    <!-- Section 1: I/O Contract & Rules Summary -->
+    <section class="section">
+      <div class="detail-grid">
+        <div class="panel">
+          <h2>Input–output contract</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Signal</th>
+                  <th>Role</th>
+                  <th>Range</th>
+                  <th>Linguistic terms</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Renewable power</td>
+                  <td>Input</td>
+                  <td>0–100 kW</td>
+                  <td>Low, Medium, High</td>
+                </tr>
+                <tr>
+                  <td>Water flow rate</td>
+                  <td>Input</td>
+                  <td>0–20 L/min</td>
+                  <td>Low, Medium, High</td>
+                </tr>
+                <tr>
+                  <td>Stack temperature</td>
+                  <td>Input</td>
+                  <td>20–80 °C</td>
+                  <td>Low, Normal, High</td>
+                </tr>
+                <tr>
+                  <td>Hydrogen-tank pressure</td>
+                  <td>Input</td>
+                  <td>0–100 bar</td>
+                  <td>Low, Medium, High</td>
+                </tr>
+                <tr>
+                  <td>Hydrogen production rate</td>
+                  <td>Output</td>
+                  <td>0–10 kg/h</td>
+                  <td>Off, Low, Medium, High</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>What this milestone establishes</h2>
+          <p>
+            The supplied source specification defines the triangular membership points and the 11 expert rules used by later implementation and validation phases.
+          </p>
+          <p>
+            It also establishes the safety direction: production should be reduced as hydrogen-tank pressure approaches the high-pressure region.
+          </p>
+          <span class="pill">11 expert rules</span>
+          <span class="pill">4 inputs</span>
+          <span class="pill">1 output</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: PDF Document Viewer -->
+    <section class="section">
+      <div class="panel document-panel">
+        <div class="document-heading">
+          <div>
+            <div class="eyebrow">Primary source document</div>
+            <h2>View the full Milestone 1 PDF</h2>
+            <p>
+              The source specification is embedded below for direct browser viewing. Use the download button if your browser does not display PDFs inline.
+            </p>
+          </div>
+          <div class="document-actions">
+            <a class="button" href="assets/Milestone_1_Source_Specification.pdf" download>Download PDF</a>
+            <button class="button secondary" id="pdf-fullscreen" type="button">Full-screen PDF</button>
+          </div>
+        </div>
+        <div class="pdf-frame" id="pdf-viewer">
+          <iframe 
+            id="pdf-embed" 
+            allowfullscreen 
+            src="assets/Milestone_1_Source_Specification.pdf#view=FitH" 
+            title="Milestone 1 Source Specification PDF">
+          </iframe>
+        </div>
+        <p class="document-caption">
+          <a href="assets/Milestone_1_Source_Specification.pdf" target="_blank" rel="noopener">Open the PDF in a new tab →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 3: Readable Companion Document -->
+    <section class="section">
+      <div class="panel">
+        <div class="eyebrow">Readable companion document</div>
+        <h2>Milestone 1 I/O specification</h2>
+        <p>
+          The companion specification summarizes the signals and requirements used by the implementation and validation milestones.
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Signal</th>
+                <th>Type</th>
+                <th>Range</th>
+                <th>Linguistic terms</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Renewable power</td>
+                <td>Input</td>
+                <td>0–100 kW</td>
+                <td>Low, Medium, High</td>
+              </tr>
+              <tr>
+                <td>Water flow rate</td>
+                <td>Input</td>
+                <td>0–20 L/min</td>
+                <td>Low, Medium, High</td>
+              </tr>
+              <tr>
+                <td>Stack temperature</td>
+                <td>Input</td>
+                <td>20–80 °C</td>
+                <td>Low, Normal, High</td>
+              </tr>
+              <tr>
+                <td>Hydrogen-tank pressure</td>
+                <td>Input</td>
+                <td>0–100 bar</td>
+                <td>Low, Medium, High</td>
+              </tr>
+              <tr>
+                <td>Hydrogen production rate</td>
+                <td>Output</td>
+                <td>0–10 kg/h</td>
+                <td>Off, Low, Medium, High</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>
+          The core notebook uses the triangular membership points and 11 expert rules from the source specification. Later phases test at least 10 input combinations, analyze parameter effects, and expose the same parameters as live controls.
+        </p>
+        <p>
+          <a href="assets/Milestone_1_IO_Specification.md" target="_blank" rel="noopener">Open the original Markdown specification →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Credits -->
+    <section class="section">
+      <div class="panel">
+        <div class="eyebrow">Created by</div>
+        <h2>Jaimin Sanghani</h2>
+        <p>Created by Jaimin Sanghani with Krupa Ashishkumar Rajput, Harsh Shingala, and Makwana Shlock.</p>
+      </div>
+    </section>
+
+    <!-- Section 5: Educational Disclaimer -->
+    <section class="section">
+      <div class="note">
+        <strong>Educational scope.</strong> The specification is a simulation foundation. It is not a certified process-safety system and must not be connected to real hydrogen-production equipment without qualified engineering review and independent safeguards.
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      Created by Jaimin Sanghani · <a href="../milestone2/">Continue to Milestone 2 →</a>
+    </div>
+  </footer>
+
   <script src="../pdf-viewer.js" defer></script>
-</body></html>
+</body>
+</html>
